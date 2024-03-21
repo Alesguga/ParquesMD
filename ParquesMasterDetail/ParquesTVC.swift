@@ -9,10 +9,10 @@
 import UIKit
 
 class ParquesTVC: UITableViewController {
-
+    var result:Result?
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        jsonDecoding()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -22,25 +22,53 @@ class ParquesTVC: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+
+    func jsonDecoding() {
+        let  urlTxt="http://www.ies-azarquiel.es/paco/apiparques/parques"
+        guard let url = URL(string: urlTxt) else {return}
+        URLSession.shared.dataTask(with: url) { (data, response, err) in
+            guard let data = data else {return}
+            do {
+                self.result =  try JSONDecoder().decode(Result.self, from: data)
+                print(self.result!.parques!.count)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            } catch let jsonErr {
+                print("Error serializing json", jsonErr)
+            }
+        }.resume()
     }
+
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        guard let result =  result else {return 0}
+        guard let parques = result.parques else {return 0}
+        return parques.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "celdaID", for: indexPath) as! ParqueCell
+                let parque = result!.parques![indexPath.row]
+                cell.lblnombrecell.text = parque.nombre
+                // Si hubiera imágenes en la celda:
+      
+if let url = URL(string: parque.imagen!) {
+                    URLSession.shared.dataTask(with: url) { (data, response, error) in
+                        guard let imageData = data else { return }
+                        DispatchQueue.main.async {
+                            cell.ivparquecell.image = UIImage(data: imageData)
+                        }
+                    }.resume()
+                }
+        
 
-        // Configure the cell...
-
+        
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
