@@ -9,7 +9,9 @@
 import UIKit
 
 class ParqueCell: UITableViewCell {
-
+    
+    @IBOutlet weak var lblnombrecell: UILabel!
+    @IBOutlet weak var ivparquecell: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
