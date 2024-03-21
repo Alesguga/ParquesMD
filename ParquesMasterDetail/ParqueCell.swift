@@ -12,9 +12,13 @@ class ParqueCell: UITableViewCell {
     
     @IBOutlet weak var lblnombrecell: UILabel!
     @IBOutlet weak var ivparquecell: UIImageView!
+    
     override func awakeFromNib() {
-	        super.awakeFromNib()
-        // Initialization code
+        super.awakeFromNib()
+        
+        // Configurar bordes redondeados
+        ivparquecell.layer.cornerRadius = min(ivparquecell.frame.size.width, ivparquecell.frame.size.height) / 2
+        ivparquecell.clipsToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -22,5 +26,5 @@ class ParqueCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }
+
