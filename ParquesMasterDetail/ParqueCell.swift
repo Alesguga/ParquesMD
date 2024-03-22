@@ -17,8 +17,9 @@ class ParqueCell: UITableViewCell {
         super.awakeFromNib()
         
         // Configurar bordes redondeados
-        ivparquecell.layer.cornerRadius = min(ivparquecell.frame.size.width, ivparquecell.frame.size.height) / 2
-        ivparquecell.clipsToBounds = true
+     
+
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

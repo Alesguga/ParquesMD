@@ -55,7 +55,7 @@ class ParquesTVC: UITableViewController {
                 cell.lblnombrecell.text = parque.nombre
                 // Si hubiera imágenes en la celda:
       
-if let url = URL(string: parque.imagen!) {
+    if let url = URL(string: parque.imagen!) {
                     URLSession.shared.dataTask(with: url) { (data, response, error) in
                         guard let imageData = data else { return }
                         DispatchQueue.main.async {
@@ -68,7 +68,18 @@ if let url = URL(string: parque.imagen!) {
         
         return cell
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showID" {
+            // Accedemos al objeto pulsado mediante indexPathForSelectedRow
+            let indexPath = self.tableView.indexPathForSelectedRow!
+            let parque = result?.parques![indexPath.row]
+            // Accedemos al controller detalle mediante el segue.destination
+            let controllerDetail = segue.destination as! DetailVC
+            // Accedemos a las var del detalle con valores del maestro
+            controllerDetail.parque = parque
+        }
+    }
+
 
     /*
     // Override to support conditional editing of the table view.

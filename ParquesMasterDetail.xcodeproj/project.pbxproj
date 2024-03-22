@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		845A034E2BAC5F65001A36D4 /* ResultImg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845A034D2BAC5F65001A36D4 /* ResultImg.swift */; };
 		84623E4E2BAC1B5300C485C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84623E4D2BAC1B5300C485C2 /* AppDelegate.swift */; };
 		84623E502BAC1B5300C485C2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84623E4F2BAC1B5300C485C2 /* SceneDelegate.swift */; };
 		84623E552BAC1B5300C485C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84623E532BAC1B5300C485C2 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		845A034D2BAC5F65001A36D4 /* ResultImg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultImg.swift; sourceTree = "<group>"; };
 		84623E4A2BAC1B5300C485C2 /* ParquesMasterDetail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParquesMasterDetail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84623E4D2BAC1B5300C485C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84623E4F2BAC1B5300C485C2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				84623E862BAC2F2B00C485C2 /* Result.swift */,
+				845A034D2BAC5F65001A36D4 /* ResultImg.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 			files = (
 				84623E872BAC2F2B00C485C2 /* Result.swift in Sources */,
 				84623E832BAC1F5600C485C2 /* ParqueCell.swift in Sources */,
+				845A034E2BAC5F65001A36D4 /* ResultImg.swift in Sources */,
 				84623E4E2BAC1B5300C485C2 /* AppDelegate.swift in Sources */,
 				84623E812BAC1F0400C485C2 /* DetailVC.swift in Sources */,
 				84623E502BAC1B5300C485C2 /* SceneDelegate.swift in Sources */,
